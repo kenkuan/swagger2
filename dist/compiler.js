@@ -122,7 +122,7 @@ function compile(document) {
     Object.keys(swagger.paths).forEach(pathName => {
         const path = swagger.paths[pathName];
         Object.keys(path)
-            .filter(name => name !== 'parameters')
+            .filter(name => name !== 'parameters' && !name.startsWith('x-'))
             .forEach(operationName => {
             const operation = path[operationName];
             const parameters = {};
